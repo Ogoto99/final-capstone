@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Men's Products</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+
+    <!-- Include Navbar -->
+    <div>
+        <!-- Navbar will be inserted dynamically -->
+        <div id="navbar"></div>
+    </div>
+    <script>
+        // Dynamically include navbar.html
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('navbar').innerHTML = data)
+            .catch(error => console.error('Error loading navbar:', error));
+    </script>
+
+    <!-- Men's Products Section -->
+    <section class="max-w-7xl mx-auto py-12 px-6">
+        <h1 class="text-4xl font-bold text-center text-gray-800 mb-8">Men's Collection</h1>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Product Card -->
+            <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/400" alt="Men's Product" class="w-full h-64 object-cover">
+                <div class="p-4">
+                    <h2 class="text-xl font-semibold text-gray-800">Product Name</h2>
+                    <p class="text-gray-600 text-sm mt-2">Stylish and comfortable. Perfect for any occasion.</p>
+                    <div class="flex justify-between items-center mt-4">
+                        <span class="text-lg font-bold text-gray-800">$49.99</span>
+                        <button class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card -->
+            <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/400" alt="Men's Product" class="w-full h-64 object-cover">
+                <div class="p-4">
+                    <h2 class="text-xl font-semibold text-gray-800">Product Name</h2>
+                    <p class="text-gray-600 text-sm mt-2">Designed with premium materials for ultimate comfort.</p>
+                    <div class="flex justify-between items-center mt-4">
+                        <span class="text-lg font-bold text-gray-800">$59.99</span>
+                        <button class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card -->
+            <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/400" alt="Men's Product" class="w-full h-64 object-cover">
+                <div class="p-4">
+                    <h2 class="text-xl font-semibold text-gray-800">Product Name</h2>
+                    <p class="text-gray-600 text-sm mt-2">A perfect blend of style and functionality.</p>
+                    <div class="flex justify-between items-center mt-4">
+                        <span class="text-lg font-bold text-gray-800">$69.99</span>
+                        <button class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+</html>

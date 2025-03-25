@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fashion Webpage Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+  <div id="auth-container" class="bg-white p-8 shadow-md rounded-lg w-full max-w-sm">
+    <h1 class="text-2xl font-bold text-center text-gray-700">Login to Fashion Webpage</h1>
+    <form id="login-form" class="mt-6">
+      <div class="mb-4">
+        <label for="login-username" class="block text-sm font-medium text-gray-600">Username</label>
+        <input type="text" id="login-username" placeholder="Enter your username" required
+               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+      </div>
+      <div class="mb-4">
+        <label for="login-password" class="block text-sm font-medium text-gray-600">Password</label>
+        <input type="password" id="login-password" placeholder="Enter your password" required
+               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+      </div>
+      <button type="button" id="login-button"
+              class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition">Login</button>
+    </form>
+    <p class="mt-4 text-center text-gray-600">
+      Don't have an account?
+      <button id="signup-switch" class="text-blue-500 underline hover:text-blue-600 transition">Sign Up</button>
+    </p>
+  </div>
+
+  <div id="signup-container" class="hidden bg-white p-8 shadow-md rounded-lg w-full max-w-sm">
+    <!-- Sign-Up Form -->
+    <h1 class="text-2xl font-bold text-center text-gray-700">Sign Up for Fashion Webpage</h1>
+    <form id="signup-form" class="mt-6">
+      <div class="mb-4">
+        <label for="signup-username" class="block text-sm font-medium text-gray-600">Username</label>
+        <input type="text" id="signup-username" placeholder="Enter a username" required
+               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400">
+      </div>
+      <div class="mb-4">
+        <label for="signup-password" class="block text-sm font-medium text-gray-600">Password</label>
+        <input type="password" id="signup-password" placeholder="Enter a password" required
+               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400">
+      </div>
+      <button type="button" id="signup-button"
+              class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition">Sign Up</button>
+    </form>
+    <p class="mt-4 text-center text-gray-600">
+      Already have an account?
+      <button id="login-switch" class="text-green-500 underline hover:text-green-600 transition">Login</button>
+    </p>
+  </div>
+
+  <div id="content" class="hidden bg-white p-8 shadow-md rounded-lg w-full max-w-sm text-center">
+    <h2 class="text-xl font-semibold text-gray-700">Welcome to the Fashion Webpage!</h2>
+    <p class="mt-4 text-gray-600">Enjoy exploring the latest in fashion trends.</p>
+  </div>
+
+  <script>
+    const loginButton = document.getElementById('login-button');
+    const signupButton = document.getElementById('signup-button');
+    const loginSwitch = document.getElementById('login-switch');
+    const signupSwitch = document.getElementById('signup-switch');
+    const authContainer = document.getElementById('auth-container');
+    const signupContainer = document.getElementById('signup-container');
+
+    // Mimic a user database
+    let isSignedUp = false;
+
+    // Login functionality with redirection
+    loginButton.addEventListener('click', () => {
+      const username = document.getElementById('login-username').value;
+      const password = document.getElementById('login-password').value;
+
+      if (isSignedUp && username && password) {
+        alert('Login successful! Redirecting to the homepage...');
+        window.location.href = "index.html"; // Redirect to the homepage
+      } else {
+        alert('Invalid credentials or no account found. Please sign up first.');
+      }
+    });
+
+    // Sign-up functionality
+    signupButton.addEventListener('click', () => {
+      const username = document.getElementById('signup-username').value;
+      const password = document.getElementById('signup-password').value;
+
+      if (username && password) {
+        alert('Sign-up successful! Please log in to access the webpage.');
+        isSignedUp = true;
+        signupContainer.classList.add('hidden');
+        authContainer.classList.remove('hidden');
+      } else {
+        alert('Please fill in all fields to sign up.');
+      }
+    });
+
+    // Switch between login and sign-up forms
+    signupSwitch.addEventListener('click', () => {
+      authContainer.classList.add('hidden');
+      signupContainer.classList.remove('hidden');
+    });
+
+    loginSwitch.addEventListener('click', () => {
+      signupContainer.classList.add('hidden');
+      authContainer.classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>

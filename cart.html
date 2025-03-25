@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Cart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Header -->
+    <header class="bg-blue-700 text-white py-6 shadow-lg">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-3xl font-bold">E-Commerce Checkout</h1>
+            <p class="text-sm text-gray-200">Secure and seamless payment process</p>
+        </div>
+    </header>
+
+    <!-- Cart Container -->
+    <div class="max-w-4xl mx-auto mt-10 bg-white shadow-lg rounded-lg">
+        <div class="p-6">
+            <h2 class="text-2xl font-bold mb-4">Your Shopping Cart</h2>
+            <!-- Cart Items -->
+            <div class="space-y-6 border-t border-gray-300 pt-4">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://via.placeholder.com/100" alt="Item 1" class="w-20 h-20 rounded shadow">
+                        <div>
+                            <p class="text-lg font-semibold">Item 1</p>
+                            <p class="text-sm text-gray-500">Description of item 1</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <input type="number" value="1" class="quantity-input w-16 px-2 py-1 border rounded text-center" min="1" data-price="10">
+                        <p class="price text-lg font-semibold">$10</p>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://via.placeholder.com/100" alt="Item 2" class="w-20 h-20 rounded shadow">
+                        <div>
+                            <p class="text-lg font-semibold">Item 2</p>
+                            <p class="text-sm text-gray-500">Description of item 2</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <input type="number" value="1" class="quantity-input w-16 px-2 py-1 border rounded text-center" min="1" data-price="15">
+                        <p class="price text-lg font-semibold">$15</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Total and Checkout -->
+            <div class="mt-6">
+                <p class="total text-xl font-bold text-right">Total: $25</p>
+                <div class="text-right mt-4">
+                    <button onclick="showModal()" 
+                        class="px-6 py-3 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700 transition duration-200">
+                        Proceed to Checkout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div id="overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-10"></div>
+
+    <!-- Modal -->
+    <div id="modal" class="hidden fixed inset-0 flex items-center justify-center z-20">
+        <div class="bg-white p-8 rounded-lg shadow-lg max-w-lg space-y-6">
+            <h3 class="text-2xl font-bold text-center">Choose Payment Option</h3>
+            <form id="payment-form" class="space-y-6">
+                <!-- Pay Immediately Option -->
+                <div>
+                    <p class="font-semibold">Pay Immediately</p>
+                    <label class="block">
+                        <input type="radio" name="payment-method" value="bank" class="mr-2" onclick="showBankOptions()"> Bank Payment
+                    </label>
+                    <div id="bank-options" class="hidden mt-2">
+                        <select class="w-full px-3 py-2 border rounded" onchange="showAccountField()">
+                            <option value="">-- Select Bank --</option>
+                            <option value="standard">Standard Bank</option>
+                            <option value="equity">Equity Bank</option>
+                            <option value="kcb">KCB</option>
+                        </select>
+                        <div id="account-field" class="hidden mt-2">
+                            <input type="text" placeholder="Enter Account Number" class="w-full px-3 py-2 border rounded" minlength="10" maxlength="16">
+                        </div>
+                    </div>
+                    <label class="block mt-4">
+                        <input type="radio" name="payment-method" value="mpesa-immediate" class="mr-2" onclick="showMpesaField()"> M-Pesa
+                    </label>
+                    <div id="mpesa-field" class="hidden mt-2">
+                        <input type="text" placeholder="Enter M-Pesa Number" class="w-full px-3 py-2 border rounded" minlength="10" maxlength="10">
+                    </div>
+                </div>
+                <!-- Pay on Delivery Option -->
+                <div>
+                    <p class="font-semibold">Pay on Delivery</p>
+                    <label class="block">
+                        <input type="radio" name="payment-method" value="cash" class="mr-2"> Cash
+                    </label>
+                    <label class="block">
+                        <input type="radio" name="payment-method" value="mpesa-delivery" class="mr-2"> M-Pesa
+                    </label>
+                    <label class="block">
+                        <input type="radio" name="payment-method" value="credit-card" class="mr-2"> Credit Card
+                    </label>
+                </div>
+                <button type="button" onclick="confirmPurchase()" 
+                    class="w-full px-4 py-2 bg-green-500 text-white font-semibold rounded hover:bg-green-600 transition duration-200">
+                    Confirm Payment
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const quantityInputs = document.querySelectorAll('.quantity-input');
+        const prices = document.querySelectorAll('.price');
+        const total = document.querySelector('.total');
+
+        // Update prices and total
+        function updatePrices() {
+            let totalPrice = 0;
+
+            quantityInputs.forEach((input, index) => {
+                const quantity = parseInt(input.value);
+                const pricePerItem = parseInt(input.dataset.price);
+                const itemPrice = quantity * pricePerItem;
+
+                prices[index].textContent = `$${itemPrice}`;
+                totalPrice += itemPrice;
+            });
+
+            total.textContent = `Total: $${totalPrice}`;
+        }
+
+        // Add event listeners to quantity inputs
+        quantityInputs.forEach(input => {
+            input.addEventListener('input', updatePrices);
+        });
+
+        // Show Bank Options
+        function showBankOptions() {
+            document.getElementById('bank-options').classList.remove('hidden');
+            document.getElementById('mpesa-field').classList.add('hidden');
+        }
+
+        // Show M-Pesa Field
+        function showMpesaField() {
+            document.getElementById('mpesa-field').classList.remove('hidden');
+            document.getElementById('bank-options').classList.add('hidden');
+        }
+
+        // Show Account Field
+        function showAccountField() {
+            const bankOptions = document.querySelector('#bank-options select');
+            const accountField = document.getElementById('account-field');
+            accountField.classList.toggle('hidden', bankOptions.value === "");
+        }
+
+        // Modal functionality
+        function showModal() {
+            document.getElementById("modal").classList.remove("hidden");
+            document.getElementById("overlay").classList.remove("hidden");
+        }
+
+        function closeModal() {
+            document.getElementById("modal").classList.add("hidden");
+            document.getElementById("overlay").classList.add("hidden");
+        }
+
+        function confirmPurchase() {
+            const selectedPayment = document.querySelector('input[name="payment-method"]:checked');
+            if (!selectedPayment) {
+                alert("Please select a payment method!");
+                return;
+            }
+
+            // Delivery Date Calculation
+            const deliveryDate = new Date();
+            deliveryDate.setDate(deliveryDate.getDate() + 3);
+
+            // Display pop-up message
+            alert(`You have successfully made your payment!\nEstimated Delivery Date: ${deliveryDate.toDateString()}`);
+            
+            // Redirect to homepage
+            window.location.href = "index.html";
+        }
+
+        document.getElementById("overlay").addEventListener("click", closeModal);
+    </script>
+</body>
+</html>
