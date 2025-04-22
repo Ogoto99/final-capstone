@@ -1,140 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fashion Store</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fashion Store</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/e3f4715c40.js" crossorigin="anonymous"></script>
 </head>
 <body class="bg-gray-100 font-sans">
-    <!-- Complex Navbar -->
-    <header class="bg-pink-500 text-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto flex justify-between items-center py-4 px-6">
-            <!-- Logo -->
-            <div class="text-2xl font-bold">
-                <a href="index.html" class="hover:text-gray-300">2Way Tailors & Outfitters</a>
-            </div>
-            <!-- Desktop Navigation -->
-            <nav class="hidden md:flex space-x-6">
-                <a href="new-arrivals.html" class="hover:text-gray-200">New Arrivals</a>
-                <div class="relative group">
-                    <a href="categories.html" class="hover:text-gray-200">Categories</a>
-                    <div class="absolute hidden group-hover:block bg-white text-pink-600 rounded shadow-lg mt-2 w-48">
-                      <a href="women.html" class="block py-1 text-white hover:bg-pink-500">Women</a>
-                      <a href="men.html" class="block py-1 text-white hover:bg-pink-500">Men</a>
-                      <a href="kids.html" class="block py-1 text-white hover:bg-pink-500">Kids</a>
-                      <a href="shoes.html" class="block py-1 text-white hover:bg-pink-500">Shoes</a>
-                      <a href="accessories.html" class="block py-1 text-white hover:bg-pink-500">Accessories</a>
-                      <a href="budget-friendly.html" class="block py-1 text-white hover:bg-pink-500">Budget-Friendly</a>
-                    </div>
-                </div>
-                <a href="best-sellers.html" class="hover:text-gray-200">Best Sellers</a>
-                <a href="sale.html" class="hover:text-gray-200">Sale</a>
-                <a href="contact.html" class="hover:text-gray-200">Contact</a>
-            </nav>
-            <!-- Search Bar and Cart Icon -->
-            <div class="hidden md:flex items-center space-x-4">
-                <input type="text" placeholder="Search fashion..." class="bg-white text-pink-600 rounded px-4 py-1 focus:outline-none focus:ring-2 focus:ring-pink-500">
-                <button class="bg-pink-600 hover:bg-pink-700 text-white px-4 py-1 rounded">Search</button>
-                <!-- Cart Icon -->
-                <a href="cart.html" class="relative text-white hover:text-gray-200">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-2 4h13m-7 0a2 2 0 11-4 0m6 0a2 2 0 104 0"></path>
-                    </svg>
-                    <span class="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold rounded-full px-1">3</span>
-                </a>
-            </div>
-            <!-- Mobile Menu Toggle -->
-            <button id="menuToggle" class="md:hidden focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
-            </button>
-        </div>
-        <!-- Mobile Dropdown Menu -->
-        <div id="mobileMenu" class="hidden bg-pink-600 md:hidden">
-            <a href="new-arrivals.html" class="block px-4 py-2 text-white hover:bg-pink-500">New Arrivals</a>
-            <div class="relative">
-                <a href="categories.html" class="block px-4 py-2 text-white hover:bg-pink-500">Categories</a>
-                <div class="bg-pink-700 px-4">
-                    <a href="women.html" class="block py-1 text-white hover:bg-pink-500">Women</a>
-                    <a href="men.html" class="block py-1 text-white hover:bg-pink-500">Men</a>
-                    <a href="accessories.html" class="block py-1 text-white hover:bg-pink-500">Accessories</a>
-                </div>
-            </div>
-            <a href="best-sellers.html" class="block px-4 py-2 text-white hover:bg-pink-500">Best Sellers</a>
-            <a href="sale.html" class="block px-4 py-2 text-white hover:bg-pink-500">Sale</a>
-            <a href="contact.html" class="block px-4 py-2 text-white hover:bg-pink-500">Contact</a>
-        </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="p-6">
-        <h2 class="text-center text-xl font-bold">Discover the Latest Trends in Fashion</h2>
-        <p class="text-center mt-4 text-gray-700">Explore our new arrivals, best sellers, and exclusive sales!</p>
-    </main>
-
-    <footer class="bg-pink-500 text-white py-8">
-      <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- About Section -->
-          <div class="space-y-4">
-              <h3 class="text-lg font-bold">About Us</h3>
-              <p class="text-gray-300 text-sm">
-                  At Brand Name, we are committed to providing high-quality products and exceptional service to our customers.
-              </p>
-              <a href="about.html" class="text-blue-400 hover:underline">Learn More</a>
-          </div>
-  
-          <!-- Quick Links -->
-          <div class="space-y-4">
-              <h3 class="text-lg font-bold">Quick Links</h3>
-              <ul class="space-y-2">
-                  <li><a href="categories.html" class="text-gray-300 hover:text-blue-400">Categories</a></li>
-                  <li><a href="testimonials.html" class="text-gray-300 hover:text-blue-400">Testimonials</a></li>
-                  <li><a href="contact.html" class="text-gray-300 hover:text-blue-400">Contact Us</a></li>
-                  <li><a href="checkout.html" class="text-gray-300 hover:text-blue-400">Checkout</a></li>
-              </ul>
-          </div>
-  
-          <!-- Subscribe and Social Links -->
-          <div class="space-y-4">
-              <h3 class="text-lg font-bold">Stay Connected</h3>
-              <form class="flex flex-col space-y-2">
-                  <input type="email" placeholder="Enter your email" class="px-4 py-2 text-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
-                  <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Subscribe</button>
-              </form>
-              <div class="flex space-x-4 mt-4">
-                  <a href="#" class="hover:text-blue-400">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6">
-                          <path d="M24 4.557c-.883.392-1.832.656-2.828.775a4.92 4.92 0 002.165-2.723 9.86 9.86 0 01-3.127 1.195 4.918 4.918 0 00-8.384 4.482 13.953 13.953 0 01-10.141-5.142 4.92 4.92 0 001.523 6.573A4.902 4.902 0 01.964 8.96v.062a4.918 4.918 0 003.946 4.827 4.935 4.935 0 01-2.212.084 4.922 4.922 0 004.6 3.417 9.867 9.867 0 01-6.102 2.104c-.396 0-.785-.023-1.17-.067A13.945 13.945 0 007.548 21 13.952 13.952 0 0021.5 7.548c0-.213-.005-.426-.015-.637A9.936 9.936 0 0024 4.557z"></path>
-                      </svg>
-                  </a>
-                  <a href="#" class="hover:text-blue-400">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6">
-                          <path d="M22.675 0H1.325C.594 0 0 .593 0 1.325v21.351C0 23.406.594 24 1.325 24h11.495v-9.294H9.798v-3.622h3.022V8.413c0-2.99 1.794-4.621 4.511-4.621 1.312 0 2.687.236 2.687.236v2.953h-1.514c-1.491 0-1.953.93-1.953 1.88v2.24h3.328l-.531 3.622h-2.797V24h5.473c.73 0 1.324-.594 1.324-1.325V1.325C24 .594 23.406 0 22.675 0z"></path>
-                      </svg>
-                  </a>
-                  <a href="#" class="hover:text-blue-400">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6">
-                          <path d="M22.23 0H1.77C.792 0 0 .772 0 1.71v20.579C0 23.228.792 24 1.77 24H22.23c.978 0 1.77-.772 1.77-1.711V1.71C24 .772 23.208 0 22.23 0zM7.027 20.452H3.909V9.034h3.118v11.418zM5.468 7.814c-1 0-1.812-.815-1.812-1.82s.812-1.82 1.812-1.82c1 0 1.812.815 1.812 1.82S6.469 7.814 5.468 7.814zM20.454 20.452h-3.118v-5.54c0-1.32-.472-2.22-1.654-2.22-.902 0-1.438.605-1.675 1.19-.086.212-.11.508-.11.806v5.764h-3.118V9.034h3.118v1.516c.416-.646 1.165-1.564 2.833-1.564 2.068 0 3.617 1.346 3.617 4.239v7.226z"></path>
-                      </svg>
-                  </a>
-              </div>
-          </div>
+  <!-- Navbar -->
+  <header class="bg-black text-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+      <!-- Logo -->
+      <div class="text-2xl font-bold">
+        <a href="index.html" class="hover:text-gray-300">WebCloset</a>
       </div>
-      <!-- Bottom Bar -->
-      <div class="mt-8 border-t border-gray-700 pt-4 text-center">
-          <p class="text-white text-lg">&copy; 2025 Brand Name. All rights reserved.</p>
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex space-x-6 items-center">
+        <a href="new-arrivals.html" class="hover:text-gray-200">New Arrivals</a>
+        <div class="relative group">
+          <a href="categories.html" class="hover:text-gray-200">Categories</a>
+          <div class="absolute hidden group-hover:block bg-white text-pink-600 rounded shadow-lg mt-2 w-48 z-50">
+            <a href="women.html" class="block py-1 px-4 text-black hover:bg-pink-500 hover:text-white">Women</a>
+            <a href="men.html" class="block py-1 px-4 text-black hover:bg-pink-500 hover:text-white">Men</a>
+            <a href="kids.html" class="block py-1 px-4 text-black hover:bg-pink-500 hover:text-white">Kids</a>
+            <a href="shoes.html" class="block py-1 px-4 text-black hover:bg-pink-500 hover:text-white">Shoes</a>
+            <a href="jewelry.html" class="block py-1 px-4 text-black hover:bg-pink-500 hover:text-white">Jewelry</a>
+            <a href="bags.html" class="block py-1 px-4 text-black hover:bg-pink-500 hover:text-white">Bags</a>
+            <a href="budget-friendly.html" class="block py-1 px-4 text-black hover:bg-pink-500 hover:text-white">Budget-Friendly</a>
+          </div>
+        </div>
+        <a href="best-sellers.html" class="hover:text-gray-200">Best Sellers</a>
+        <a href="about.html" class="hover:text-gray-200">About</a>
+        <a href="contact.html" class="hover:text-gray-200">Contact</a>
+      </nav>
+      <!-- Search Bar and Cart Icon -->
+      <div class="hidden md:flex items-center space-x-4">
+        <input type="text" placeholder="Search..." class="bg-white text-pink-600 rounded px-4 py-1 focus:outline-none focus:ring-2 focus:ring-pink-500" />
+        <button class="bg-red-500 hover:bg-red-700 text-white px-4 py-1 rounded">Search</button>
+        <!-- Cart Icon -->
+        <a href="cart.html" class="relative text-white hover:text-gray-200">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-2 4h13m-7 0a2 2 0 11-4 0m6 0a2 2 0 104 0"></path>
+          </svg>
+          <span class="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold rounded-full px-1">0</span>
+        </a>
       </div>
+      <!-- Account Icon -->
+      <a href="account.html" class="text-white hover:text-gray-500 transition">
+        <i class="fa-solid fa-user"></i>
+      </a>
+      <!-- Mobile Menu Toggle -->
+      <button id="menuToggle" class="md:hidden focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </div>
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-pink-600">
+      <a href="new-arrivals.html" class="block px-4 py-2 text-white hover:bg-pink-500">New Arrivals</a>
+      <div class="block px-4 py-2 text-white hover:bg-pink-500 cursor-pointer" onclick="toggleSubMenu()">Categories</div>
+      <div id="subMenu" class="hidden bg-pink-700 px-6">
+        <a href="women.html" class="block py-1 text-white hover:bg-pink-500">Women</a>
+        <a href="men.html" class="block py-1 text-white hover:bg-pink-500">Men</a>
+        <a href="accessories.html" class="block py-1 text-white hover:bg-pink-500">Accessories</a>
+      </div>
+      <a href="best-sellers.html" class="block px-4 py-2 text-white hover:bg-pink-500">Best Sellers</a>
+      <a href="sale.html" class="block px-4 py-2 text-white hover:bg-pink-500">Sale</a>
+      <a href="contact.html" class="block px-4 py-2 text-white hover:bg-pink-500">Contact</a>
+    </div>
+  </header>
+
+    <!-- Hero Section -->
+    <header class="bg-hero-image bg-cover bg-center h-screen text-center flex items-center justify-center" style="background-image: url('assets/pexels-kish-1488463.jpg');">
+        <div class="bg-black bg-opacity-50 p-6 rounded">
+          <h1 class="text-4xl md:text-6xl font-bold mb-4 text-white">Welcome to WebCloset</h1>
+          <p class="text-lg md:text-xl mb-6 text-white">Where every clothe finds a soul!</p>
+          <a href="categories.html" class="bg-yellow-500 hover:bg-yellow-600 text-black px-4 py-2 rounded">Explore Fashion</a>
+        </div>
+      </header>
+
+  <!-- Main Content -->
+  <main class="p-6">
+    <h2 class="text-center text-xl font-bold">Discover the Latest Trends in Fashion</h2>
+    <p class="text-center mt-4 text-gray-700">Explore our new arrivals, best sellers, and exclusive sales!</p>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-black py-8">
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <h3 class="text-lg font-bold text-red-500">About Us</h3>
+        <p class="text-white text-sm mt-2">
+          At Brand Name, we are committed to providing high-quality products and exceptional service to our customers.
+        </p>
+        <a href="about.html" class="text-blue-400 hover:underline">Learn More</a>
+      </div>
+      <div>
+        <h3 class="text-lg font-bold text-red-500">Quick Links</h3>
+        <ul class="mt-2 space-y-2 text-white">
+          <li><a href="games.html" class="hover:text-pink-500">Games</a></li>
+          <li><a href="community.html" class="hover:text-pink-500">Community</a></li>
+          <li><a href="events.html" class="hover:text-pink-500">Events</a></li>
+          <li><a href="contact.html" class="hover:text-pink-500">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-lg font-bold text-red-500">Stay Connected</h3>
+        <form class="flex flex-col mt-2">
+          <input type="email" placeholder="Enter your email" class="px-4 py-2 rounded bg-gray-700 focus:outline-none focus:ring-2 focus:ring-pink-500"/>
+          <button class="bg-red-500 hover:bg-red-600 text-white mt-2 px-4 py-2 rounded">Subscribe</button>
+        </form>
+        <div class="flex space-x-4 mt-4">
+          <a href="https://www.facebook.com" target="_blank" class="text-white hover:text-red-500 text-2xl"><i class="fa-brands fa-square-facebook"></i></a>
+          <a href="https://www.twitter.com" target="_blank" class="text-white hover:text-red-500 text-2xl"><i class="fa-brands fa-square-x-twitter"></i></a>
+          <a href="https://www.instagram.com" target="_blank" class="text-white hover:text-red-500 text-2xl"><i class="fa-brands fa-square-instagram"></i></a>
+          <a href="https://www.youtube.com" target="_blank" class="text-white hover:text-red-500 text-2xl"><i class="fa-brands fa-square-youtube"></i></a>
+          <a href="https://www.tiktok.com" target="_blank" class="text-white hover:text-red-500 text-2xl"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://www.pinterest.com" target="_blank" class="text-white hover:text-red-500 text-2xl"><i class="fa-brands fa-pinterest"></i></a>
+        </div>
+      </div>
+    </div>
   </footer>
 
-    <!-- JavaScript for Mobile Menu Toggle -->
-    <script>
-        const menuToggle = document.getElementById('menuToggle');
-        const mobileMenu = document.getElementById('mobileMenu');
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-    </script>
+  <!-- JavaScript -->
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const subMenu = document.getElementById('subMenu');
+
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    function toggleSubMenu() {
+      subMenu.classList.toggle('hidden');
+    }
+  </script>
 </body>
 </html>
