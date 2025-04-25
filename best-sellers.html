@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Sellers</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e3f4715c40.js" crossorigin="anonymous"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <!-- Backdrop for mobile menu -->
+    <div id="backdrop" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+  
+    <!-- Navbar -->
+    <header class="bg-black text-white shadow-md sticky top-0 z-50">
+      <div class="container mx-auto flex justify-between items-center py-4 px-6">
+        <!-- Logo -->
+        <div class="text-2xl font-bold">
+          <a href="index.html" class="hover:text-gray-300">WebCloset</a>
+        </div>
+  
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex space-x-6 items-center">
+          <a href="new-arrivals.html" class="hover:text-gray-200">New Arrivals</a>
+          <!-- Categories Dropdown -->
+          <div class="relative group">
+            <a href="categories.html" class="hover:text-gray-200">Categories</a>
+            <div class="absolute hidden group-hover:block bg-white text-black rounded shadow-lg mt-2 w-48 z-50">
+              <a href="categories.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Women</a>
+              <a href="categories.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Men</a>
+              <a href="categories.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Kids</a>
+              <a href="categories.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Shoes</a>
+              <a href="categories.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Jewelry</a>
+              <a href="categories.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Bags</a>
+              <a href="categories.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Budget-Friendly</a>
+            </div>
+          </div>
+          <!-- Best Sellers Dropdown -->
+          <div class="relative group">
+            <a href="best-sellers.html" class="hover:text-gray-200">Best Sellers</a>
+            <div class="absolute hidden group-hover:block bg-white text-black rounded shadow-lg mt-2 w-48 z-50">
+              <a href="best-sellers.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Clothes</a>
+              <a href="best-sellers.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Jewelry</a>
+              <a href="best-sellers.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Shoes</a>
+            </div>
+          </div>
+          <!-- About Dropdown -->
+          <div class="relative group">
+            <a href="about.html" class="hover:text-gray-200">About</a>
+            <div class="absolute hidden group-hover:block bg-white text-black rounded shadow-lg mt-2 w-48 z-50">
+              <a href="about.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Blog</a>
+              <a href="about.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Our Story</a>
+            </div>
+          </div>
+          <a href="contact.html" class="hover:text-gray-200">Contact</a>
+        </nav>
+  
+        <!-- Account & Cart Icons -->
+        <div class="hidden md:flex items-center space-x-6">
+          <!-- Account Icon -->
+      <a href="account.html" class="hover:text-gray-500 transition">
+        <i class="fa-solid fa-user text-xl"></i>
+      </a>
+    
+      <!-- Cart Icon -->
+<a href="cart.html" class="relative hover:text-gray-500 transition">
+  <i class="fa-solid fa-cart-shopping text-xl"></i>
+  <span class="cart-count absolute -top-2 -right-2 bg-yellow-500 text-black text-xs font-bold px-1.5 py-0.5 rounded-full">
+    0
+  </span>
+</a>
+
+  
+        <!-- Mobile Menu Toggle -->
+        <button id="menuToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu" class="md:hidden focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+      </div>
+  
+      <!-- Mobile Menu -->
+       <div id="mobileMenu" class="hidden md:hidden bg-black z-50 absolute top-full left-0 w-1/3">
+          <a href="new-arrivals.html" class="block px-4 py-2 text-white hover:bg-red-500">New Arrivals</a>
+          <div class="block px-4 py-2 text-white hover:bg-pink-500 cursor-pointer" onclick="toggleSubMenu()">Categories</div>
+          <div id="subMenu" class="hidden bg-red-700 px-6">
+              <a href="women.html" class="block py-1 text-white hover:bg-red-500">Women</a>
+              <a href="men.html" class="block py-1 text-white hover:bg-red-500">Men</a>
+              <a href="accessories.html" class="block py-1 text-white hover:bg-red-500">Accessories</a>
+          </div>
+          <a href="best-sellers.html" class="block px-4 py-2 text-white hover:bg-red-500">Best Sellers</a>
+          <a href="contact.html" class="block px-4 py-2 text-white hover:bg-red-500">Contact</a>
+      </div>
+  </header>
+
+    <!-- Best Sellers Section -->
+    <section class="max-w-7xl mx-auto p-6">
+        <h1 class="text-4xl font-bold text-center text-gray-800 mb-10">Best Sellers</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Product Card 1 -->
+            <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="shoes\s-l1200.jpg" alt="Product Image" class="w-full h-64 object-cover">
+                <div class="p-4">
+                    <h2 class="text-xl font-semibold text-gray-800">Clarks Bank Robbers</h2>
+                    <p class="text-gray-600 text-sm mt-2"> Black suede shoes with crepe sole, lace-up.</p>
+                    <div class="flex justify-between items-center mt-4">
+                        <span class="text-lg font-bold text-gray-800">$49.99</span>
+                        <button class="bg-yellow-500 text-white text-sm px-4 py-2 rounded-lg hover:bg-yellow-600 transition">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card 2 -->
+            <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="pay\51EiXZ3RPpL._UL500_.jpg" alt="Product Image" class="w-full h-64 object-cover">
+                <div class="p-4">
+                    <h2 class="text-xl font-semibold text-gray-800">Two-tone split Hoodie.</h2>
+                    <p class="text-gray-600 text-sm mt-2">Black-and-white hoodie with symmetrical split design.</p>
+                    <div class="flex justify-between items-center mt-4">
+                        <span class="text-lg font-bold text-gray-800">$39.99</span>
+                        <button class="bg-yellow-500 text-white text-sm px-4 py-2 rounded-lg hover:bg-yellow-600 transition">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card 3 -->
+            <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="pay\61aYxjMzv0S._AC_SL1500_.jpg" alt="Product Image" class="w-full h-64 object-cover">
+                <div class="p-4">
+                    <h2 class="text-xl font-semibold text-gray-800">Round sunglasses with gold and black frames</h2>
+                    <p class="text-gray-600 text-sm mt-2">Stylish, modern sunglasses with dark protective lenses.</p>
+                    <div class="flex justify-between items-center mt-4">
+                        <span class="text-lg font-bold text-gray-800">$59.99</span>
+                        <button class="bg-yellow-500 text-white text-sm px-4 py-2 rounded-lg hover:bg-yellow-600 transition">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Product Card 4 -->
+            <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="assets\1000_F_115435773_MDUK7OA9sFeePFnZ3kWPl2rW8I1oyRpA.jpg" alt="Product Image" class="w-full h-64 object-cover">
+                <div class="p-4">
+                    <h2 class="text-xl font-semibold text-gray-800">Golden Watch</h2>
+                    <p class="text-gray-600 text-sm mt-2"> Luxurious gold watch with black dial and strap.</p>
+                    <div class="flex justify-between items-center mt-4">
+                        <span class="text-lg font-bold text-gray-800">$49.99</span>
+                        <button class="bg-yellow-500 text-white text-sm px-4 py-2 rounded-lg hover:bg-yellow-600 transition">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card 5 -->
+            <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="shoes\nike-air-vapormax-flyknit-shoes.png" alt="Product Image" class="w-full h-64 object-cover">
+                <div class="p-4">
+                    <h2 class="text-xl font-semibold text-gray-800">Nike Air Vapormax Flyknit</h2>
+                    <p class="text-gray-600 text-sm mt-2">Sleek, lightweight, breathable, cushioned, stylish, durable, black.</p>
+                    <div class="flex justify-between items-center mt-4">
+                        <span class="text-lg font-bold text-gray-800">$39.99</span>
+                        <button class="bg-yellow-500 text-white text-sm px-4 py-2 rounded-lg hover:bg-yellow-600 transition">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card 6 -->
+            <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="pay\71Nph9vGzAL._AC_UY1000_.jpg" alt="Product Image" class="w-full h-64 object-cover">
+                <div class="p-4">
+                    <h2 class="text-xl font-semibold text-gray-800">Aucuu Sling Bag</h2>
+                    <p class="text-gray-600 text-sm mt-2">Compact, beige, multi-pocket, adjustable strap, stylish.</p>
+                    <div class="flex justify-between items-center mt-4">
+                        <span class="text-lg font-bold text-gray-800">$59.99</span>
+                        <button class="bg-yellow-500 text-white text-sm px-4 py-2 rounded-lg hover:bg-yellow-600 transition">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Product Card 7 -->
+            <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="pay\DSC_5459.jpg" alt="Product Image" class="w-full h-64 object-cover">
+                <div class="p-4">
+                    <h2 class="text-xl font-semibold text-gray-800">Diamond Cuban Link Chain Necklace</h2>
+                    <p class="text-gray-600 text-sm mt-2">Luxurious, sparkling, intricate design, bold, premium accessory.</p>
+                    <div class="flex justify-between items-center mt-4">
+                        <span class="text-lg font-bold text-gray-800">$49.99</span>
+                        <button class="bg-yellow-500 text-white text-sm px-4 py-2 rounded-lg hover:bg-yellow-600 transition">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card 8 -->
+            <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="shoes\img-5172-2.jpg" alt="Product Image" class="w-full h-64 object-cover">
+                <div class="p-4">
+                    <h2 class="text-xl font-semibold text-gray-800">Nike Air Force 1</h2>
+                    <p class="text-gray-600 text-sm mt-2">Brief description of the product goes here.</p>
+                    <div class="flex justify-between items-center mt-4">
+                        <span class="text-lg font-bold text-gray-800">$39.99</span>
+                        <button class="bg-yellow-500 text-white text-sm px-4 py-2 rounded-lg hover:bg-yellow-600 transition">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card 9 -->
+            <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="pay\Telzeal-WP01-Smart-Watch.jpg" alt="Product Image" class="w-full h-64 object-cover">
+                <div class="p-4">
+                    <h2 class="text-xl font-semibold text-gray-800">Smart Watch</h2>
+                    <p class="text-gray-600 text-sm mt-2">Brief description of the product goes here.</p>
+                    <div class="flex justify-between items-center mt-4">
+                        <span class="text-lg font-bold text-gray-800">$59.99</span>
+                        <button class="bg-yellow-500 text-white text-sm px-4 py-2 rounded-lg hover:bg-yellow-600 transition">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Footer -->
+<footer class="bg-black py-8">
+    <div class="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <!-- About Us -->
+      <div>
+        <h3 class="text-lg font-bold text-red-500">About Us</h3>
+        <p class="text-white text-sm mt-2">
+            At WebCloset, we are committed to providing high-quality products and exceptional service to our customers.
+        </p>
+        <a href="about.html" class="text-blue-400 hover:underline">Learn More</a>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="text-lg font-bold text-red-500">Quick Links</h3>
+        <ul class="mt-2 space-y-2 text-white">
+          <li><a href="categories.html" class="hover:text-red-500">Categories</a></li>
+          <li><a href="about.html" class="hover:text-red-500">Blog</a></li>
+          <li><a href="cart.html" class="hover:text-red-500">View Cart</a></li>
+          <li><a href="contact.html" class="hover:text-red-500">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Stay Connected -->
+      <div>
+        <h3 class="text-lg font-bold text-red-500">Stay Connected</h3>
+        <form class="flex flex-col mt-2">
+          <input type="email" placeholder="Enter your email" class="px-4 py-2 rounded bg-gray-700 focus:outline-none focus:ring-2 focus:ring-pink-500"/>
+          <button class="bg-red-500 hover:bg-red-600 text-white mt-2 px-4 py-2 rounded">Subscribe</button>
+        </form>
+        <div class="flex flex-wrap gap-3 mt-4">
+          <a href="https://www.facebook.com" target="_blank" class="text-white hover:text-red-500 text-xl"><i class="fa-brands fa-square-facebook"></i></a>
+          <a href="https://www.twitter.com" target="_blank" class="text-white hover:text-red-500 text-xl"><i class="fa-brands fa-square-x-twitter"></i></a>
+          <a href="https://www.instagram.com" target="_blank" class="text-white hover:text-red-500 text-xl"><i class="fa-brands fa-square-instagram"></i></a>
+          <a href="https://www.youtube.com" target="_blank" class="text-white hover:text-red-500 text-xl"><i class="fa-brands fa-square-youtube"></i></a>
+          <a href="https://www.tiktok.com" target="_blank" class="text-white hover:text-red-500 text-xl"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://www.pinterest.com" target="_blank" class="text-white hover:text-red-500 text-xl"><i class="fa-brands fa-pinterest"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    function getCart() {
+      return JSON.parse(localStorage.getItem('cart')) || [];
+    }
+  
+    function saveCart(cart) {
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+  
+    function updateCartCount() {
+      const cart = getCart();
+      const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+      document.querySelectorAll('.cart-count').forEach(el => el.textContent = count);
+    }
+  
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll('.buy-now-btn').forEach(button => {
+        button.addEventListener('click', () => {
+          const name = button.dataset.name;
+          const price = parseFloat(button.dataset.price);
+          const img = button.dataset.img;
+  
+          let cart = getCart();
+          const existingItem = cart.find(item => item.name === name);
+          if (existingItem) {
+            existingItem.quantity += 1;
+          } else {
+            cart.push({ name, price, img, quantity: 1 });
+          }
+  
+          saveCart(cart);
+          updateCartCount();
+          alert(`${name} added to cart!`);
+        });
+      });
+  
+      updateCartCount();
+    });
+  </script>  
+</body>
+</html>

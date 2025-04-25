@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+  <!-- Payment Container -->
+  <div class="max-w-lg mx-auto mt-10 bg-white shadow-lg rounded-lg p-6">
+    <h2 class="text-2xl font-bold text-center mb-6">Finalize Your Payment</h2>
+    <form id="payment-form" class="space-y-6">
+      <!-- Payment Method Selection -->
+      <div>
+        <p class="text-lg font-semibold mb-2">Select Payment Method:</p>
+        <label class="block">
+          <input type="radio" name="payment-method" value="bank" class="mr-2" onclick="showBankPayment()"> Bank Payment
+        </label>
+        <label class="block">
+          <input type="radio" name="payment-method" value="mpesa" class="mr-2" onclick="showMpesaPayment()"> M-Pesa Payment
+        </label>
+        <label class="block">
+          <input type="radio" name="payment-method" value="airtel" class="mr-2" onclick="showAirtelPayment()"> Airtel Money Payment
+        </label>
+      </div>
+
+      <!-- Bank Payment Form -->
+      <div id="bank-payment" class="hidden space-y-4">
+        <div class="text-center">
+          <p class="text-lg font-semibold">Select Bank</p>
+          <div class="grid grid-cols-3 gap-4">
+            <img src="pay\kcb-group-plc-logo-png_seeklogo-392008.png" alt="KCB" class="w-16 mx-auto cursor-pointer" onclick="selectBank('KCB')">
+            <img src="pay\unnamed.jpg" alt="CO-OP" class="w-16 mx-auto cursor-pointer" onclick="selectBank('CO-OP')">
+            <img src="pay\images (1).png" alt="I & M" class="w-16 mx-auto cursor-pointer" onclick="selectBank('I & M')">
+          </div>
+        </div>
+        <label class="block">
+          <span class="text-sm text-gray-700" id="bank-label">Account Number</span>
+          <input type="text" id="bank-account" placeholder="Enter your account number" required
+            class="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-blue-300">
+        </label>
+        <button type="button" onclick="startBankPayment()" 
+          class="w-full px-4 py-2 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700">
+          Proceed
+        </button>
+        <div id="bank-pin-prompt" class="hidden mt-4">
+          <p class="text-sm text-gray-500">Please enter your PIN on your phone to complete the payment.</p>
+          <button type="button" onclick="finalizePayment()" 
+            class="w-full mt-2 px-4 py-2 bg-green-500 text-white font-semibold rounded hover:bg-green-600">
+            Confirm Payment
+          </button>
+        </div>
+      </div>
+
+      <!-- M-Pesa Payment Form -->
+      <div id="mpesa-payment" class="hidden space-y-4">
+        <div class="text-center">
+          <img src="pay\unnamed.png" alt="M-Pesa Logo" class="w-16 mx-auto">
+        </div>
+        <p class="text-lg font-semibold text-center">M-Pesa Payment</p>
+        <label class="block">
+          <span class="text-sm text-gray-700">M-Pesa Number</span>
+          <input type="text" id="mpesa-number" placeholder="Enter your M-Pesa number" required
+            class="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-green-300">
+        </label>
+        <button type="button" onclick="startMpesaPayment()" 
+          class="w-full px-4 py-2 bg-green-500 text-white font-semibold rounded hover:bg-green-600">
+          Proceed
+        </button>
+        <div id="mpesa-pin-prompt" class="hidden mt-4">
+          <p class="text-sm text-gray-500">Please enter your PIN on your phone to complete the payment.</p>
+          <button type="button" onclick="finalizePayment()" 
+            class="w-full mt-2 px-4 py-2 bg-green-500 text-white font-semibold rounded hover:bg-green-600">
+            Confirm Payment
+          </button>
+        </div>
+      </div>
+
+      <!-- Airtel Money Payment Form -->
+      <div id="airtel-payment" class="hidden space-y-4">
+        <div class="text-center">
+          <img src="pay\images.png" alt="Airtel Money Logo" class="w-16 mx-auto">
+        </div>
+        <p class="text-lg font-semibold text-center">Airtel Money Payment</p>
+        <label class="block">
+          <span class="text-sm text-gray-700">Airtel Money Number</span>
+          <input type="text" id="airtel-number" placeholder="Enter your Airtel Money number" required
+            class="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-red-300">
+        </label>
+        <button type="button" onclick="startAirtelPayment()" 
+          class="w-full px-4 py-2 bg-red-500 text-white font-semibold rounded hover:bg-red-600">
+          Proceed
+        </button>
+        <div id="airtel-pin-prompt" class="hidden mt-4">
+          <p class="text-sm text-gray-500">Please enter your PIN on your phone to complete the payment.</p>
+          <button type="button" onclick="finalizePayment()" 
+            class="w-full mt-2 px-4 py-2 bg-red-500 text-white font-semibold rounded hover:bg-red-600">
+            Confirm Payment
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    let selectedBank = '';
+
+    function showBankPayment() {
+      document.getElementById('bank-payment').classList.remove('hidden');
+      document.getElementById('mpesa-payment').classList.add('hidden');
+      document.getElementById('airtel-payment').classList.add('hidden');
+    }
+
+    function selectBank(bankName) {
+      selectedBank = bankName;
+      document.getElementById('bank-label').textContent = `Account Number for ${bankName}`;
+      document.getElementById('bank-account').placeholder = `Enter your ${bankName} account number`;
+    }
+
+    function startBankPayment() {
+      const accountNumber = document.getElementById("bank-account").value;
+      if (accountNumber) {
+        alert(`You have selected ${selectedBank} and entered account number: ${accountNumber}`);
+        document.getElementById("bank-pin-prompt").classList.remove("hidden");
+      } else {
+        alert("Please enter a valid account number.");
+      }
+    }
+
+    function finalizePayment() {
+      const date = new Date();
+      date.setDate(date.getDate() + 3);
+      alert(`Payment Successful! \nYour package will be delivered on ${date.toDateString()}.`);
+      window.location.href = "index.html";
+    }
+
+    function showMpesaPayment() {
+      document.getElementById('mpesa-payment').classList.remove('hidden');
+      document.getElementById('bank-payment').classList.add('hidden');
+      document.getElementById('airtel-payment').classList.add('hidden');
+    }
+
+    function startMpesaPayment() {
+      const mpesaNumber = document.getElementById("mpesa-number").value;
+      if (mpesaNumber) {
+        document.getElementById("mpesa-pin-prompt").classList.remove("hidden");
+      } else {
+        alert("Please enter a valid M-Pesa number.");
+      }
+    }
+
+    function showAirtelPayment() {
+      document.getElementById('airtel-payment').classList.remove('hidden');
+      document.getElementById('bank-payment').classList.add('hidden');
+      document.getElementById('mpesa-payment').classList.add('hidden');
+    }
+
+    function startAirtelPayment() {
+      const airtelNumber = document.getElementById("airtel-number").value;
+      if (airtelNumber) {
+        document.getElementById("airtel-pin-prompt").classList.remove("hidden");
+      } else {
+        alert("Please enter a valid Airtel Money number.");
+      }
+    }
+  </script>
+</body>
+</html>

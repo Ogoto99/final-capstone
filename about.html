@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Fashion Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/e3f4715c40.js" crossorigin="anonymous"></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+    <!-- Backdrop for mobile menu -->
+  <div id="backdrop" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+
+  <!-- Navbar -->
+  <header class="bg-black text-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+      <!-- Logo -->
+      <div class="text-2xl font-bold">
+        <a href="index.html" class="hover:text-gray-300">WebCloset</a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex space-x-6 items-center">
+        <a href="new-arrivals.html" class="hover:text-gray-200">New Arrivals</a>
+        <!-- Categories Dropdown -->
+        <div class="relative group">
+          <a href="categories.html" class="hover:text-gray-200">Categories</a>
+          <div class="absolute hidden group-hover:block bg-white text-black rounded shadow-lg mt-2 w-48 z-50">
+            <a href="categories.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Women</a>
+            <a href="categories.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Men</a>
+            <a href="categories.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Kids</a>
+            <a href="categories.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Shoes</a>
+            <a href="categories.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Jewelry</a>
+            <a href="categories.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Bags</a>
+            <a href="categories.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Budget-Friendly</a>
+          </div>
+        </div>
+        <!-- Best Sellers Dropdown -->
+        <div class="relative group">
+          <a href="best-sellers.html" class="hover:text-gray-200">Best Sellers</a>
+          <div class="absolute hidden group-hover:block bg-white text-black rounded shadow-lg mt-2 w-48 z-50">
+            <a href="best-sellers.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Clothes</a>
+            <a href="best-sellers.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Jewelry</a>
+            <a href="best-sellers.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Shoes</a>
+          </div>
+        </div>
+        <!-- About Dropdown -->
+        <div class="relative group">
+          <a href="about.html" class="hover:text-gray-200">About</a>
+          <div class="absolute hidden group-hover:block bg-white text-black rounded shadow-lg mt-2 w-48 z-50">
+            <a href="about.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Blog</a>
+            <a href="about.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Our Story</a>
+          </div>
+        </div>
+        <a href="contact.html" class="hover:text-gray-200">Contact</a>
+      </nav>
+      <!-- Account Icon -->
+      <div class="hidden md:flex items-center space-x-4">
+        <a href="account.html" class="hover:text-gray-500 transition">
+          <i class="fa-solid fa-user"></i>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle -->
+      <button id="menuToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu" class="md:hidden focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+     <div id="mobileMenu" class="hidden md:hidden bg-black z-50 absolute top-full left-0 w-1/3">
+        <a href="new-arrivals.html" class="block px-4 py-2 text-white hover:bg-red-500">New Arrivals</a>
+        <div class="block px-4 py-2 text-white hover:bg-pink-500 cursor-pointer" onclick="toggleSubMenu()">Categories</div>
+        <div id="subMenu" class="hidden bg-red-700 px-6">
+            <a href="women.html" class="block py-1 text-white hover:bg-red-500">Women</a>
+            <a href="men.html" class="block py-1 text-white hover:bg-red-500">Men</a>
+            <a href="accessories.html" class="block py-1 text-white hover:bg-red-500">Accessories</a>
+        </div>
+        <a href="best-sellers.html" class="block px-4 py-2 text-white hover:bg-red-500">Best Sellers</a>
+        <a href="contact.html" class="block px-4 py-2 text-white hover:bg-red-500">Contact</a>
+    </div>
+</header>
+
+
+<!-- Hero Section -->
+<section class="relative bg-gray-200 h-96 flex justify-center items-center text-center">
+  <!-- Background Image -->
+  <img src="profile\fashion-blog-concept-word-cloud-background-FRRBGP.jpg" alt="Fashion Background" class="absolute inset-0 w-full h-full object-cover opacity-50">
+  
+  <!-- Content Overlay -->
+  <div class="relative z-10">
+      <h1 class="text-4xl font-bold text-gray-800">About Us</h1>
+      <p class="text-lg text-black mt-4">Our Story. Our Journey. Your Style.</p>
+  </div>
+</section>
+
+<!-- Our Story -->
+<section class="py-12 px-6 bg-white">
+    <h2 class="text-3xl font-semibold text-center">Our Story</h2>
+    <p class="max-w-4xl mx-auto mt-4 text-gray-700 text-center">
+        Born from a passion for fashion, we are a team of creators dedicated to redefining style. 
+        Our journey began in 2010 with a mission to bring bold, modern designs to life. From humble beginnings to a global community, 
+        we stay inspired by you.
+    </p>
+</section>
+
+<!-- Mission & Values -->
+<section class="py-12 px-6 bg-gray-100">
+    <h2 class="text-3xl font-semibold text-center">Mission & Values</h2>
+    <p class="max-w-4xl mx-auto mt-4 text-gray-700 text-center">
+        At WebCloset, our mission is to empower individuals by offering stylish, sustainable, and high-quality fashion choices. 
+        We believe in inclusivity, creativity, and the importance of constantly evolving to meet our customers' needs. 
+        Our core values include innovation, integrity, and customer-centricity, guiding us in everything we do.
+    </p>
+</section>
+
+<!-- Team -->
+<section class="py-12 px-6 bg-white">
+    <h2 class="text-3xl font-semibold text-center">Meet Our Team</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-8">
+        <!-- Team Member 1 -->
+        <div class="text-center">
+            <img src="profile\IMG-20250211-WA0007.jpg" alt="Team Member 1" class="rounded-full mx-auto w-32 h-32 object-cover">
+            <h3 class="mt-4 font-semibold text-lg">Melekh Ogoto</h3>
+            <p class="text-gray-600">CEO & Founder</p>
+        </div>
+
+        <!-- Team Member 2 -->
+        <div class="text-center">
+            <img src="profile\istockphoto-1587604256-612x612.jpg" alt="Team Member 2" class="rounded-full mx-auto w-32 h-32 object-cover">
+            <h3 class="mt-4 font-semibold text-lg">Grace Mwende</h3>
+            <p class="text-gray-600">Creative Director</p>
+        </div>
+
+        <!-- Team Member 3 -->
+        <div class="text-center">
+            <img src="profile\360_F_383258331_D8imaEMl8Q3lf7EKU2Pi78Cn0R7KkW9o.jpg" alt="Team Member 3" class="rounded-full mx-auto w-32 h-32 object-cover">
+            <h3 class="mt-4 font-semibold text-lg">Olivia Johnson</h3>
+            <p class="text-gray-600">Lead Designer</p>
+        </div>
+    </div>
+</section>
+
+<!-- Ethical Practices & Sustainability -->
+<section class="py-12 px-6 bg-gray-100">
+    <h2 class="text-3xl font-semibold text-center">Ethical Practices & Sustainability</h2>
+    <p class="max-w-4xl mx-auto mt-4 text-gray-700 text-center">
+        We are committed to promoting sustainability in the fashion industry. At WebCloset, we use eco-friendly materials, 
+        work with ethical manufacturers, and focus on reducing our carbon footprint. We believe in creating products that 
+        not only look great but also have a positive impact on the planet. 
+    </p>
+</section>
+
+<!-- Social Proof -->
+<section class="py-12 px-6 bg-gray-100">
+    <h2 class="text-3xl font-semibold text-center">What Our Customers Say</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-8">
+
+        <!-- Testimonial 1 -->
+        <div class="bg-white rounded-lg shadow-lg p-6">
+            <div class="flex items-center space-x-4">
+                <img src="profile\1820919-819x1024.jpg" alt="Customer 1" class="w-16 h-16 rounded-full object-cover">
+                <div>
+                    <h3 class="text-xl font-bold">Mary Wanjiku</h3>
+                </div>
+            </div>
+            <p class="mt-4 text-gray-600">"WebCloset offers the most stylish and affordable fashion. I love the quality and fit of the clothes!"</p>
+            <!-- Star Rating -->
+            <div class="flex justify-start mt-4 text-yellow-500">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="bg-white rounded-lg shadow-lg p-6">
+            <div class="flex items-center space-x-4">
+                <img src="profile\olawale-munna-oXzyPakqsA0-unsplash.jpg" alt="Customer 2" class="w-16 h-16 rounded-full object-cover">
+                <div>
+                    <h3 class="text-xl font-bold">Allan Juma</h3>
+                </div>
+            </div>
+            <p class="mt-4 text-gray-600">"I’m obsessed with my new wardrobe! Every piece fits perfectly, and the customer service is amazing."</p>
+            <!-- Star Rating -->
+            <div class="flex justify-start mt-4 text-yellow-500">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="bg-white rounded-lg shadow-lg p-6">
+            <div class="flex items-center space-x-4">
+                <img src="profile\pexels-august-de-richelieu-4428046.jpg" alt="Customer 3" class="w-16 h-16 rounded-full object-cover">
+                <div>
+                    <h3 class="text-xl font-bold">Sarah Michaels</h3>
+                </div>
+            </div>
+            <p class="mt-4 text-gray-600">"Great fashion for all occasions, and I appreciate the sustainable approach they take with their designs."</p>
+            <!-- Star Rating -->
+            <div class="flex justify-start mt-4 text-yellow-500">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <i class="far fa-star"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Our Blog -->
+<section class="py-12 px-6 bg-gray-100">
+    <h2 class="text-3xl font-semibold text-center">Our Blog</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-8">
+
+        <!-- Blog Post 1 -->
+        <div class="bg-white rounded-lg shadow-lg p-6">
+            <img src="profile\wendy-lookbook.png" alt="Blog Post 1" class="rounded-t-lg">
+            <h3 class="text-xl font-bold mt-4">Fashion Tips for Summer</h3>
+            <p class="mt-2 text-gray-600">Stay cool and stylish this summer with our top tips!</p>
+            <a href="https://www.carlazampatti.com.au/blogs/the-carla/7-summer-fashion-tips-that-will-never-go-out-of-style?srsltid=AfmBOopzFSxyoMkqNo-XOQmgKqpIFiiJd4VMl1MFxtyU5V-hqw_TrNqe" class="text-indigo-500 hover:underline mt-4 block">Read More</a>
+        </div>
+
+        <!-- Blog Post 2 -->
+        <div class="bg-white rounded-lg shadow-lg p-6">
+            <img src="profile\Screen-Shot-2022-03-09-at-1.47.21-PM-1024x665.png" alt="Blog Post 2" class="rounded-t-lg">
+            <h3 class="text-xl font-bold mt-4">Behind the Scenes</h3>
+            <p class="mt-2 text-gray-600">Discover the inspiration behind our latest collection.</p>
+            <a href="https://www.vogue.com/article/fashion-films-behind-the-scenes-videos" class="text-indigo-500 hover:underline mt-4 block">Read More</a>
+        </div>
+
+        <!-- Blog Post 3 -->
+        <div class="bg-white rounded-lg shadow-lg p-6">
+            <img src="profile\rsz_mia-mia-mine-fashion-blog-example.png" alt="Blog Post 3" class="rounded-t-lg">
+            <h3 class="text-xl font-bold mt-4">Sustainable Fashion</h3>
+            <p class="mt-2 text-gray-600">How we’re making a difference with eco-friendly designs.</p>
+            <a href="https://immago.com/sustainable-fashion-important/" class="text-indigo-500 hover:underline mt-4 block">Read More</a>
+        </div>
+    </div>
+</section>
+
+    <!-- Footer -->
+  <footer class="bg-black py-8">
+    <div class="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <!-- About Us -->
+      <div>
+        <h3 class="text-lg font-bold text-red-500">About Us</h3>
+        <p class="text-white text-sm mt-2">
+            At WebCloset, we are committed to providing high-quality products and exceptional service to our customers.
+        </p>
+        <a href="about.html" class="text-blue-400 hover:underline">Learn More</a>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="text-lg font-bold text-red-500">Quick Links</h3>
+        <ul class="mt-2 space-y-2 text-white">
+          <li><a href="categories.html" class="hover:text-red-500">Categories</a></li>
+          <li><a href="about.html" class="hover:text-red-500">Blog</a></li>
+          <li><a href="cart.html" class="hover:text-red-500">View Cart</a></li>
+          <li><a href="contact.html" class="hover:text-red-500">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Stay Connected -->
+      <div>
+        <h3 class="text-lg font-bold text-red-500">Stay Connected</h3>
+        <form class="flex flex-col mt-2">
+          <input type="email" placeholder="Enter your email" class="px-4 py-2 rounded bg-gray-700 focus:outline-none focus:ring-2 focus:ring-pink-500"/>
+          <button class="bg-red-500 hover:bg-red-600 text-white mt-2 px-4 py-2 rounded">Subscribe</button>
+        </form>
+        <div class="flex flex-wrap gap-3 mt-4">
+          <a href="https://www.facebook.com" target="_blank" class="text-white hover:text-red-500 text-xl"><i class="fa-brands fa-square-facebook"></i></a>
+          <a href="https://www.twitter.com" target="_blank" class="text-white hover:text-red-500 text-xl"><i class="fa-brands fa-square-x-twitter"></i></a>
+          <a href="https://www.instagram.com" target="_blank" class="text-white hover:text-red-500 text-xl"><i class="fa-brands fa-square-instagram"></i></a>
+          <a href="https://www.youtube.com" target="_blank" class="text-white hover:text-red-500 text-xl"><i class="fa-brands fa-square-youtube"></i></a>
+          <a href="https://www.tiktok.com" target="_blank" class="text-white hover:text-red-500 text-xl"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://www.pinterest.com" target="_blank" class="text-white hover:text-red-500 text-xl"><i class="fa-brands fa-pinterest"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const subMenu = document.getElementById('subMenu');
+    const backdrop = document.getElementById('backdrop');
+
+    menuToggle.addEventListener('click', () => {
+      const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      mobileMenu.classList.toggle('hidden');
+      backdrop.classList.toggle('hidden');
+      menuToggle.setAttribute('aria-expanded', !expanded);
+    });
+
+    function toggleSubMenu() {
+      subMenu.classList.toggle('hidden');
+    }
+
+    // Close menu if backdrop is clicked
+    backdrop.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      backdrop.classList.add('hidden');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    });
+  </script>
+</body>
+</html>

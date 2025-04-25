@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e3f4715c40.js" crossorigin="anonymous"></script>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Backdrop for mobile menu -->
+  <div id="backdrop" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+
+  <!-- Navbar -->
+  <header class="bg-black text-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+      <!-- Logo -->
+      <div class="text-2xl font-bold">
+        <a href="index.html" class="hover:text-gray-300">WebCloset</a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex space-x-6 items-center">
+        <a href="new-arrivals.html" class="hover:text-gray-200">New Arrivals</a>
+        <!-- Categories Dropdown -->
+        <div class="relative group">
+          <a href="categories.html" class="hover:text-gray-200">Categories</a>
+          <div class="absolute hidden group-hover:block bg-white text-black rounded shadow-lg mt-2 w-48 z-50">
+            <a href="categories.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Women</a>
+            <a href="categories.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Men</a>
+            <a href="categories.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Kids</a>
+            <a href="categories.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Shoes</a>
+            <a href="categories.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Jewelry</a>
+            <a href="categories.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Bags</a>
+            <a href="categories.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Budget-Friendly</a>
+          </div>
+        </div>
+        <!-- Best Sellers Dropdown -->
+        <div class="relative group">
+          <a href="best-sellers.html" class="hover:text-gray-200">Best Sellers</a>
+          <div class="absolute hidden group-hover:block bg-white text-black rounded shadow-lg mt-2 w-48 z-50">
+            <a href="best-sellers.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Clothes</a>
+            <a href="best-sellers.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Jewelry</a>
+            <a href="best-sellers.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Shoes</a>
+          </div>
+        </div>
+        <!-- About Dropdown -->
+        <div class="relative group">
+          <a href="about.html" class="hover:text-gray-200">About</a>
+          <div class="absolute hidden group-hover:block bg-white text-black rounded shadow-lg mt-2 w-48 z-50">
+            <a href="about.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Blog</a>
+            <a href="about.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Our Story</a>
+          </div>
+        </div>
+        <a href="contact.html" class="hover:text-gray-200">Contact</a>
+      </nav>
+      <!-- Account Icon -->
+      <div class="hidden md:flex items-center space-x-4">
+        <a href="account.html" class="hover:text-gray-500 transition">
+          <i class="fa-solid fa-user"></i>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle -->
+      <button id="menuToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu" class="md:hidden focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+     <div id="mobileMenu" class="hidden md:hidden bg-black z-50 absolute top-full left-0 w-1/3">
+        <a href="new-arrivals.html" class="block px-4 py-2 text-white hover:bg-red-500">New Arrivals</a>
+        <div class="block px-4 py-2 text-white hover:bg-pink-500 cursor-pointer" onclick="toggleSubMenu()">Categories</div>
+        <div id="subMenu" class="hidden bg-red-700 px-6">
+            <a href="women.html" class="block py-1 text-white hover:bg-red-500">Women</a>
+            <a href="men.html" class="block py-1 text-white hover:bg-red-500">Men</a>
+            <a href="accessories.html" class="block py-1 text-white hover:bg-red-500">Accessories</a>
+        </div>
+        <a href="best-sellers.html" class="block px-4 py-2 text-white hover:bg-red-500">Best Sellers</a>
+        <a href="contact.html" class="block px-4 py-2 text-white hover:bg-red-500">Contact</a>
+    </div>
+</header>
+
+    <!-- Contact Section -->
+    <section class="max-w-7xl mx-auto py-12 px-6">
+        <h1 class="text-4xl font-bold text-center text-gray-800 mb-8">Contact Us</h1>
+
+        <!-- Contact Form and Map Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Contact Form -->
+            <div class="bg-white p-8 shadow-md rounded-lg">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Get in Touch</h2>
+                <form action="#" method="POST" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                        <input type="text" id="name" name="name" class="mt-1 block w-full px-4 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                        <input type="email" id="email" name="email" class="mt-1 block w-full px-4 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500" required>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                        <textarea id="message" name="message" rows="4" class="mt-1 block w-full px-4 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500" required></textarea>
+                    </div>
+                    <div>
+                        <button type="submit" class="bg-red-500 text-white py-2 px-6 rounded-lg hover:bg-red-600 transition">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Map -->
+            <div class="bg-white p-8 shadow-md rounded-lg">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Visit Us</h2>
+                <div class="aspect-w-16 aspect-h-9">
+                    <iframe
+                        class="rounded-md"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345092347!2d144.9559283153166!3d-37.8172097420217!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf57764e708cb5b65!2sFederation%20Square!5e0!3m2!1sen!2sau!4v1614056158063!5m2!1sen!2sau"
+                        width="100%" height="100%" allowfullscreen="" loading="lazy">
+                    </iframe>
+                </div>
+                <p class="text-sm text-gray-600 mt-4">
+                    Our office is located at <strong>123 Main Street, Nairobi</strong>. Drop by anytime!
+                </p>
+            </div>
+        </div>
+    </section>
+
+<!-- Footer -->
+<footer class="bg-black py-8">
+    <div class="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <!-- About Us -->
+      <div>
+        <h3 class="text-lg font-bold text-red-500">About Us</h3>
+        <p class="text-white text-sm mt-2">
+            At WebCloset, we are committed to providing high-quality products and exceptional service to our customers.
+        </p>
+        <a href="about.html" class="text-blue-400 hover:underline">Learn More</a>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="text-lg font-bold text-red-500">Quick Links</h3>
+        <ul class="mt-2 space-y-2 text-white">
+          <li><a href="categories.html" class="hover:text-red-500">Categories</a></li>
+          <li><a href="about.html" class="hover:text-red-500">Blog</a></li>
+          <li><a href="cart.html" class="hover:text-red-500">View Cart</a></li>
+          <li><a href="contact.html" class="hover:text-red-500">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Stay Connected -->
+      <div>
+        <h3 class="text-lg font-bold text-red-500">Stay Connected</h3>
+        <form class="flex flex-col mt-2">
+          <input type="email" placeholder="Enter your email" class="px-4 py-2 rounded bg-gray-700 focus:outline-none focus:ring-2 focus:ring-pink-500"/>
+          <button class="bg-red-500 hover:bg-red-600 text-white mt-2 px-4 py-2 rounded">Subscribe</button>
+        </form>
+        <div class="flex flex-wrap gap-3 mt-4">
+          <a href="https://www.facebook.com" target="_blank" class="text-white hover:text-red-500 text-xl"><i class="fa-brands fa-square-facebook"></i></a>
+          <a href="https://www.twitter.com" target="_blank" class="text-white hover:text-red-500 text-xl"><i class="fa-brands fa-square-x-twitter"></i></a>
+          <a href="https://www.instagram.com" target="_blank" class="text-white hover:text-red-500 text-xl"><i class="fa-brands fa-square-instagram"></i></a>
+          <a href="https://www.youtube.com" target="_blank" class="text-white hover:text-red-500 text-xl"><i class="fa-brands fa-square-youtube"></i></a>
+          <a href="https://www.tiktok.com" target="_blank" class="text-white hover:text-red-500 text-xl"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://www.pinterest.com" target="_blank" class="text-white hover:text-red-500 text-xl"><i class="fa-brands fa-pinterest"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const subMenu = document.getElementById('subMenu');
+    const backdrop = document.getElementById('backdrop');
+
+    menuToggle.addEventListener('click', () => {
+      const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      mobileMenu.classList.toggle('hidden');
+      backdrop.classList.toggle('hidden');
+      menuToggle.setAttribute('aria-expanded', !expanded);
+    });
+
+    function toggleSubMenu() {
+      subMenu.classList.toggle('hidden');
+    }
+
+    // Close menu if backdrop is clicked
+    backdrop.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      backdrop.classList.add('hidden');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    });
+  </script>
+</body>
+</html>

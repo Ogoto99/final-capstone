@@ -9,7 +9,7 @@
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
   <div class="w-full max-w-md bg-black shadow-lg rounded-lg p-8">
     <h2 class="text-2xl font-semibold text-center text-white mb-6">Welcome Back</h2>
-    <form action="#" method="POST" class="space-y-6">
+    <form id="signin-form" action="#" method="POST" class="space-y-6">
       <!-- Email Input -->
       <div>
         <label for="email" class="block text-white font-medium mb-2">Email Address</label>
@@ -75,6 +75,27 @@
       const input = document.getElementById(id);
       input.type = input.type === "password" ? "text" : "password";
     }
-  </script>
+  
+    const form = document.getElementById('signin-form');
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      const email = document.getElementById('email').value;
+      const timestamp = new Date().toISOString();
+  
+      // Store user data in localStorage
+      const userData = {
+        email: email,
+        lastLogin: timestamp
+      };
+      localStorage.setItem('user', JSON.stringify(userData));
+  
+      // Show welcome message
+      alert(`Welcome back, ${email}!`);
+  
+      // Redirect to categories page
+      window.location.href = 'categories.html';
+    });
+  </script>  
 </body>
 </html>

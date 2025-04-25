@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Account - WebCloset</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/e3f4715c40.js" crossorigin="anonymous"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+  <!-- Backdrop for mobile menu -->
+  <div id="backdrop" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+
+  <!-- Navbar -->
+  <header class="bg-black text-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+      <!-- Logo -->
+      <div class="text-2xl font-bold">
+        <a href="index.html" class="hover:text-gray-300">WebCloset</a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex space-x-6 items-center">
+        <a href="new-arrivals.html" class="hover:text-gray-200">New Arrivals</a>
+
+        <!-- Categories Dropdown -->
+        <div class="relative group">
+          <a href="categories.html" class="hover:text-gray-200">Categories</a>
+          <div class="absolute hidden group-hover:block bg-white text-black rounded shadow-lg mt-2 w-48 z-50">
+            <a href="categories.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Women</a>
+            <a href="categories.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Men</a>
+            <a href="categories.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Kids</a>
+            <a href="categories.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Shoes</a>
+            <a href="categories.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Jewelry</a>
+            <a href="categories.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Bags</a>
+            <a href="categories.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Budget-Friendly</a>
+          </div>
+        </div>
+
+        <!-- Best Sellers Dropdown -->
+        <div class="relative group">
+          <a href="best-sellers.html" class="hover:text-gray-200">Best Sellers</a>
+          <div class="absolute hidden group-hover:block bg-white text-black rounded shadow-lg mt-2 w-48 z-50">
+            <a href="best-sellers.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Clothes</a>
+            <a href="best-sellers.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Jewelry</a>
+            <a href="best-sellers.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Shoes</a>
+          </div>
+        </div>
+
+        <!-- About Dropdown -->
+        <div class="relative group">
+          <a href="about.html" class="hover:text-gray-200">About</a>
+          <div class="absolute hidden group-hover:block bg-white text-black rounded shadow-lg mt-2 w-48 z-50">
+            <a href="about.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Blog</a>
+            <a href="about.html" class="block py-1 px-4 hover:bg-red-500 hover:text-white">Our Story</a>
+          </div>
+        </div>
+
+        <a href="contact.html" class="hover:text-gray-200">Contact</a>
+      </nav>
+
+      <!-- Account Icon -->
+      <div class="hidden md:flex items-center space-x-4">
+        <a href="account.html" class="hover:text-gray-500 transition">
+          <i class="fa-solid fa-user"></i>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle -->
+      <button id="menuToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu" class="md:hidden focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-black z-50 absolute top-full left-0 w-full">
+      <a href="new-arrivals.html" class="block px-4 py-2 text-white hover:bg-red-500">New Arrivals</a>
+      <a href="categories.html" class="block px-4 py-2 text-white hover:bg-red-500">Categories</a>
+      <a href="best-sellers.html" class="block px-4 py-2 text-white hover:bg-red-500">Best Sellers</a>
+      <a href="contact.html" class="block px-4 py-2 text-white hover:bg-red-500">Contact</a>
+      <a href="account.html" class="block px-4 py-2 text-white hover:bg-red-500">
+        <i class="fa-solid fa-user"></i> Account
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Account Layout -->
+  <div class="container mx-auto mt-8 mb-16 px-4 md:flex md:space-x-6">
+    
+    <!-- Sidebar -->
+    <aside class="bg-white w-full md:w-1/4 p-6 rounded-lg shadow mb-6 md:mb-0">
+      <h2 class="text-xl font-semibold text-gray-800 mb-4 border-b pb-2">Hello, <span id="user-email">User</span></h2>
+      <ul class="space-y-4 text-gray-700">
+        <li id="profile-link" class="flex items-center space-x-2 hover:text-red-500 cursor-pointer"><i class="fas fa-user-circle"></i><span>Profile</span></li>
+        <li id="orders-link" class="flex items-center space-x-2 hover:text-red-500 cursor-pointer"><i class="fas fa-box"></i><span>Orders</span></li>
+        <li id="logout-link" class="flex items-center space-x-2 hover:text-red-500 cursor-pointer"><i class="fas fa-sign-out-alt"></i><span>Logout</span></li>
+      </ul>
+    </aside>
+
+<!-- Profile Section -->
+<div id="profile-section" class="section-content bg-white p-6 rounded-lg shadow">
+  <h3 class="text-lg font-bold text-gray-800 mb-4">Profile Details</h3>
+
+  <!-- Profile Header with Image and Name -->
+  <div class="flex items-center space-x-6 mb-6">
+    <img src="https://via.placeholder.com/80" alt="Profile Picture" class="w-20 h-20 rounded-full border-2 border-gray-300 object-cover" id="profile-image">
+    <div>
+      <h4 class="text-xl font-semibold text-gray-800" id="user-name">John Doe</h4>
+      <p class="text-gray-600" id="user-email">john.doe@example.com</p>
+      <button class="text-blue-500 hover:text-blue-700 mt-2" id="edit-profile-picture" onclick="editProfilePicture()">Edit Profile Picture</button>
+    </div>
+  </div>
+
+  <!-- Profile Details in a Row -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    
+    <!-- Personal Details -->
+    <div class="flex flex-col space-y-2">
+      <h4 class="text-md font-semibold text-gray-800">Personal Details</h4>
+      <p class="text-gray-700" id="full-name">Full Name: John Doe</p>
+      <p class="text-gray-700" id="phone-number">Phone: (123) 456-7890</p>
+      <button class="mt-4 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded" onclick="editPersonalDetails()">Edit Personal Details</button>
+    </div>
+
+    <!-- Address -->
+    <div class="flex flex-col space-y-2">
+      <h4 class="text-md font-semibold text-gray-800">Shipping Address</h4>
+      <p class="text-gray-700" id="address">123 Main St, Apt 4B, City, Country, 12345</p>
+      <button class="mt-4 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded" onclick="editAddress()">Edit Address</button>
+    </div>
+  </div>
+
+  <!-- Change Password Section -->
+  <div class="flex flex-col mt-6">
+    <h4 class="text-md font-semibold text-gray-800 mb-2">Change Password</h4>
+    <button class="mt-4 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded" onclick="editPassword()">Change Password</button>
+  </div>
+
+  <!-- Modals (Hidden by default) -->
+  <!-- Modal for Editing Personal Details -->
+  <div id="edit-personal-details-modal" class="modal hidden fixed inset-0 bg-gray-500 bg-opacity-50 flex items-center justify-center">
+    <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
+      <h3 class="text-lg font-bold text-gray-800 mb-4">Edit Personal Details</h3>
+      <form id="edit-personal-form">
+        <div class="space-y-4">
+          <div>
+            <label class="block text-gray-700">Full Name</label>
+            <input type="text" class="w-full px-4 py-2 rounded border border-gray-300" id="new-full-name" value="John Doe">
+          </div>
+          <div>
+            <label class="block text-gray-700">Phone Number</label>
+            <input type="text" class="w-full px-4 py-2 rounded border border-gray-300" id="new-phone-number" value="(123) 456-7890">
+          </div>
+          <div class="flex justify-end space-x-4 mt-4">
+            <button type="button" class="bg-gray-500 hover:bg-gray-700 text-white px-4 py-2 rounded" onclick="closeModal('edit-personal-details-modal')">Cancel</button>
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded">Save Changes</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal for Editing Address -->
+  <div id="edit-address-modal" class="modal hidden fixed inset-0 bg-gray-500 bg-opacity-50 flex items-center justify-center">
+    <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
+      <h3 class="text-lg font-bold text-gray-800 mb-4">Edit Address</h3>
+      <form id="edit-address-form">
+        <div class="space-y-4">
+          <div>
+            <label class="block text-gray-700">Shipping Address</label>
+            <input type="text" class="w-full px-4 py-2 rounded border border-gray-300" id="new-address" value="123 Main St, Apt 4B, City, Country, 12345">
+          </div>
+          <div class="flex justify-end space-x-4 mt-4">
+            <button type="button" class="bg-gray-500 hover:bg-gray-700 text-white px-4 py-2 rounded" onclick="closeModal('edit-address-modal')">Cancel</button>
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded">Save Changes</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal for Editing Password -->
+  <div id="edit-password-modal" class="modal hidden fixed inset-0 bg-gray-500 bg-opacity-50 flex items-center justify-center">
+    <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
+      <h3 class="text-lg font-bold text-gray-800 mb-4">Change Password</h3>
+      <form id="edit-password-form">
+        <div class="space-y-4">
+          <div>
+            <label class="block text-gray-700">New Password</label>
+            <input type="password" class="w-full px-4 py-2 rounded border border-gray-300" id="new-password" placeholder="Enter new password">
+          </div>
+          <div>
+            <label class="block text-gray-700">Confirm Password</label>
+            <input type="password" class="w-full px-4 py-2 rounded border border-gray-300" id="confirm-password" placeholder="Confirm new password">
+          </div>
+          <div class="flex justify-end space-x-4 mt-4">
+            <button type="button" class="bg-gray-500 hover:bg-gray-700 text-white px-4 py-2 rounded" onclick="closeModal('edit-password-modal')">Cancel</button>
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded">Save Changes</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>
+
+<!-- Scripts -->
+<script>
+  function editProfilePicture() {
+    alert("You can upload a new profile picture here.");
+  }
+
+  function editPersonalDetails() {
+    document.getElementById('edit-personal-details-modal').classList.remove('hidden');
+  }
+
+  function editAddress() {
+    document.getElementById('edit-address-modal').classList.remove('hidden');
+  }
+
+  function editPaymentMethod() {
+    document.getElementById('edit-payment-method-modal').classList.remove('hidden');
+  }
+
+  function editPassword() {
+    document.getElementById('edit-password-modal').classList.remove('hidden');
+  }
+
+  function closeModal(modalId) {
+    document.getElementById(modalId).classList.add('hidden');
+  }
+
+  // Form submissions (for demo purposes, actual logic should be implemented in backend)
+  document.getElementById('edit-personal-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    let name = document.getElementById('new-full-name').value;
+    let phone = document.getElementById('new-phone-number').value;
+    
+    // Update the content dynamically
+    document.getElementById('full-name').textContent = 'Full Name: ' + name;
+    document.getElementById('phone-number').textContent = 'Phone: ' + phone;
+    closeModal('edit-personal-details-modal');
+  });
+
+  document.getElementById('edit-address-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    let address = document.getElementById('new-address').value;
+    
+    // Update the content dynamically
+    document.getElementById('address').textContent = address;
+    closeModal('edit-address-modal');
+  });
+
+  document.getElementById('edit-payment-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    let paymentMethod = document.getElementById('new-payment-method').value;
+    
+    // Update the content dynamically
+    document.getElementById('payment-method').textContent = paymentMethod;
+    closeModal('edit-payment-method-modal');
+  });
+
+  document.getElementById('edit-password-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    let newPassword = document.getElementById('new-password').value;
+    let confirmPassword = document.getElementById('confirm-password').value;
+    
+    if (newPassword === confirmPassword) {
+      alert('Password changed successfully!');
+      closeModal('edit-password-modal');
+    } else {
+      alert('Passwords do not match.');
+    }
+  });
+</script>
+
+   <!-- Orders Section -->
+<div id="orders-section" class="section-content hidden bg-white p-6 rounded-lg shadow">
+  <h3 class="text-lg font-bold text-gray-800 mb-2">Your Orders</h3>
+  <p class="text-gray-600">Here are your recent orders.</p>
+
+  <!-- View Orders Button -->
+  <button class="mt-4 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded" onclick="viewOrders()">View Orders</button>
+
+  <!-- Orders List -->
+  <div id="orders-list" class="mt-6 hidden flex flex-wrap gap-4">
+    <!-- Order items will be injected here -->
+  </div>
+</div>
+
+<!-- Scripts -->
+<script>
+  // Example of cart items that have been paid for
+  const completedOrders = [
+    {
+      orderId: 1001,
+      product: "Noise Cancelling Headphones",
+      price: 199.99,
+      status: "Order placed"
+    },
+    {
+      orderId: 1002,
+      product: "Bluetooth Speaker",
+      price: 89.99,
+      status: "Order placed"
+    }
+  ];
+
+  function viewOrders() {
+    const ordersList = document.getElementById('orders-list');
+    ordersList.classList.remove('hidden');
+    ordersList.innerHTML = ""; // Clear previous content
+
+    // Loop through orders and display them
+    completedOrders.forEach(order => {
+      const orderItem = document.createElement('div');
+      orderItem.className = "order-item p-4 border border-gray-300 rounded flex-1 max-w-xs";
+
+      orderItem.innerHTML = `
+        <h4 class="text-md font-semibold text-gray-800">Order #${order.orderId}</h4>
+        <p class="text-gray-700">Product: ${order.product}</p>
+        <p class="text-gray-700">Price: $${order.price.toFixed(2)}</p>
+        <div class="order-status mt-2">
+          <p class="text-gray-700">Status: <span id="order-status-${order.orderId}">${order.status}</span></p>
+          <button class="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded mt-2" onclick="trackOrder(${order.orderId})">Track Order</button>
+        </div>
+      `;
+
+      ordersList.appendChild(orderItem);
+    });
+  }
+
+  function trackOrder(orderId) {
+    const order = completedOrders.find(o => o.orderId === orderId);
+    const statuses = [
+      "Order placed",
+      "Shipped",
+      "Out for delivery",
+      "Delivered"
+    ];
+    const currentIndex = statuses.indexOf(order.status);
+    if (currentIndex < statuses.length - 1) {
+      order.status = statuses[currentIndex + 1];
+    } else {
+      order.status = "Delivered";
+    }
+    document.getElementById(`order-status-${orderId}`).textContent = order.status;
+  }
+</script>
+
+    <!-- Logout Section -->
+    <div id="logout-section" class="section-content hidden bg-white p-6 rounded-lg shadow">
+      <h3 class="text-lg font-bold text-gray-800 mb-2">Logout</h3>
+      <p class="text-gray-600">You have been logged out successfully.</p>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-black py-8">
+    <div class="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div>
+        <h3 class="text-lg font-bold text-red-500">About Us</h3>
+        <p class="text-white text-sm mt-2">At WebCloset, we are committed to providing high-quality products and exceptional service to our customers.</p>
+        <a href="about.html" class="text-blue-400 hover:underline">Learn More</a>
+      </div>
+      <div>
+        <h3 class="text-lg font-bold text-red-500">Quick Links</h3>
+        <ul class="mt-2 space-y-2 text-white">
+          <li><a href="categories.html" class="hover:text-red-500">Categories</a></li>
+          <li><a href="about.html" class="hover:text-red-500">Blog</a></li>
+          <li><a href="cart.html" class="hover:text-red-500">View Cart</a></li>
+          <li><a href="contact.html" class="hover:text-red-500">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-lg font-bold text-red-500">Stay Connected</h3>
+        <form class="flex flex-col mt-2">
+          <input type="email" placeholder="Enter your email" class="px-4 py-2 rounded bg-gray-700 focus:outline-none focus:ring-2 focus:ring-pink-500" />
+          <button class="bg-red-500 hover:bg-red-600 text-white mt-2 px-4 py-2 rounded">Subscribe</button>
+        </form>
+        <div class="flex flex-wrap gap-3 mt-4">
+          <a href="https://www.facebook.com" target="_blank" class="text-white hover:text-red-500 text-xl"><i class="fa-brands fa-square-facebook"></i></a>
+          <a href="https://www.twitter.com" target="_blank" class="text-white hover:text-red-500 text-xl"><i class="fa-brands fa-square-x-twitter"></i></a>
+          <a href="https://www.instagram.com" target="_blank" class="text-white hover:text-red-500 text-xl"><i class="fa-brands fa-square-instagram"></i></a>
+          <a href="https://www.youtube.com" target="_blank" class="text-white hover:text-red-500 text-xl"><i class="fa-brands fa-square-youtube"></i></a>
+          <a href="https://www.tiktok.com" target="_blank" class="text-white hover:text-red-500 text-xl"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://www.pinterest.com" target="_blank" class="text-white hover:text-red-500 text-xl"><i class="fa-brands fa-pinterest"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user) {
+      document.getElementById('user-email').textContent = user.email;
+    }
+
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const backdrop = document.getElementById('backdrop');
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('hidden');
+      backdrop.classList.toggle('hidden');
+      menuToggle.setAttribute('aria-expanded', !isOpen);
+    });
+
+    backdrop.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      backdrop.classList.add('hidden');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    });
+
+    // Sidebar interactivity and section display
+    document.querySelectorAll("aside ul li").forEach(item => {
+      item.addEventListener("click", () => {
+        // Remove active class from all sidebar items
+        document.querySelectorAll("aside ul li").forEach(li => li.classList.remove("text-red-500", "font-semibold"));
+        
+        // Add active class to the clicked item
+        item.classList.add("text-red-500", "font-semibold");
+
+        // Hide all sections
+        document.querySelectorAll('.section-content').forEach(section => section.classList.add('hidden'));
+
+        // Show the corresponding section based on the clicked item
+        const sectionId = item.textContent.trim().toLowerCase(); // Dynamically get the section ID
+        const sectionElement = document.getElementById(`${sectionId}-section`); // Match the ID with the section
+        if (sectionElement) {
+          sectionElement.classList.remove('hidden'); // Show the clicked section
+        }
+      });
+    });
+
+    document.querySelector("li:has(.fa-sign-out-alt)").addEventListener('click', () => {
+      localStorage.removeItem('user');
+      window.location.href = 'sign-in.html';
+    });
+
+    if (!user) {
+      window.location.href = 'sign-in.html';
+    }
+  </script>
+</body>
+</html>
