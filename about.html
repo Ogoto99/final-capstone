@@ -86,14 +86,19 @@
 
 
 <!-- Hero Section -->
-<section class="relative bg-gray-200 h-96 flex justify-center items-center text-center">
+<section class="relative bg-gray-200 h-96 flex justify-center items-center text-center overflow-hidden">
   <!-- Background Image -->
-  <img src="profile\fashion-blog-concept-word-cloud-background-FRRBGP.jpg" alt="Fashion Background" class="absolute inset-0 w-full h-full object-cover opacity-50">
-  
+  <img src="profile/fashion-blog-concept-word-cloud-background-FRRBGP.jpg" 
+       alt="Fashion Background" 
+       class="absolute inset-0 w-full h-full object-cover z-0" />
+
+  <!-- Dark Overlay for Opacity Effect -->
+  <div class="absolute inset-0 bg-black bg-opacity-50 z-0"></div>
+
   <!-- Content Overlay -->
   <div class="relative z-10">
-      <h1 class="text-4xl font-bold text-gray-800">About Us</h1>
-      <p class="text-lg text-black mt-4">Our Story. Our Journey. Your Style.</p>
+      <h1 class="text-4xl font-bold text-white">About Us</h1>
+      <p class="text-lg text-white mt-4">Our Story. Our Journey. Your Style.</p>
   </div>
 </section>
 
@@ -241,7 +246,7 @@
 
         <!-- Blog Post 3 -->
         <div class="bg-white rounded-lg shadow-lg p-6">
-            <img src="profile\rsz_mia-mia-mine-fashion-blog-example.png" alt="Blog Post 3" class="rounded-t-lg">
+            <img src="pay\rsz_mia-mia-mine-fashion-blog-example.png" alt="Blog Post 3" class="rounded-t-lg">
             <h3 class="text-xl font-bold mt-4">Sustainable Fashion</h3>
             <p class="mt-2 text-gray-600">How we’re making a difference with eco-friendly designs.</p>
             <a href="https://immago.com/sustainable-fashion-important/" class="text-indigo-500 hover:underline mt-4 block">Read More</a>
